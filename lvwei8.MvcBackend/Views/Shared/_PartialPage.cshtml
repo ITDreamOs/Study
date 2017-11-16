@@ -1,0 +1,104 @@
+﻿@using lvwei8.Service.Base
+@using System.Text
+@using lvwei8.Common.Helpers
+
+@model PageModel
+
+@{
+    var defaultPage = new PageModel()
+    {
+        PageNo = 1,
+        PageCount = 0
+    };
+    var pageInfo = this.Model ?? defaultPage;
+}
+
+@{
+    var isMobile = CheckerHelper.DetectMobile;
+    StringBuilder builder = new StringBuilder();
+    if (pageInfo.PageCount > 0)
+    {
+        //如果是网页
+        if (!isMobile)
+        {
+            //显示页码数量
+            int displayPage = 11;
+            //分页偏移
+            int offset = displayPage / 2;
+            int sPage, ePage;
+            // 分页控件开始
+            builder.Append("<ul class=\"pagination\"><li><a>" + pageInfo.RecordCount + "条记录" + pageInfo.PageCount + "页</a></li>");
+            //计算起止页码
+            sPage = pageInfo.PageNo - offset;
+            if (sPage < 1)
+            {
+                sPage = 1;
+            }
+            ePage = displayPage + (sPage - 1);
+            if (ePage > pageInfo.PageCount)
+            {
+                sPage = sPage - (ePage - pageInfo.PageCount);
+                if (sPage < 1)
+                {
+                    sPage = 1;
+                }
+                ePage = pageInfo.PageCount;
+            }
+            if (pageInfo.PageNo != 1)
+            {
+                builder.Append(string.Format("<li><a href=\"{0}\">«</a></li>", UrlParamHelper.Instance.GetCurrentURLReplaceKey("PageNo", (pageInfo.PageNo - 1).ToString()), (pageInfo.PageNo - 1).ToString()));
+            }
+            //循环分页
+            for (var i = sPage; i <= ePage; i++)
+            {
+                if (pageInfo.PageNo == i)
+                {
+                    builder.Append(string.Format("<li class=\"active\"><a href=\"{0}\" >{1}</a></li>", UrlParamHelper.Instance.GetCurrentURLReplaceKey("PageNo", i.ToString()), i.ToString()));
+                }
+                else
+                {
+                    builder.Append(string.Format("<li><a href=\"{0}\">{1}</a></li>", UrlParamHelper.Instance.GetCurrentURLReplaceKey("PageNo", i.ToString()), i.ToString()));
+                }
+            }
+            if (pageInfo.PageNo != pageInfo.PageCount)
+            {
+                builder.Append(string.Format("<li><a href=\"{0}\">»</a></li>", UrlParamHelper.Instance.GetCurrentURLReplaceKey("PageNo", (pageInfo.PageNo + 1).ToString()), (pageInfo.PageNo - 1).ToString()));
+                builder.Append(string.Format("<li><a href=\"{0}\">尾页</a></li>", UrlParamHelper.Instance.GetCurrentURLReplaceKey("PageNo", pageInfo.PageCount.ToString()), pageInfo.PageCount.ToString()));
+            }
+            builder.Append(string.Format("<li><a>跳转到<input currenturl=\"{0}\" type=\"text\" id=\"searchpage\"/>页<input type=\"button\" onclick=\"var redictval=$('#searchpage').val(); var CurrentUrl= $('#searchpage').attr('currenturl')+'&pageno='+redictval; if(redictval!='')  location.href =CurrentUrl;\" value=\"跳转\" /></a></li>", UrlParamHelper.Instance.GetCurrentURL()));
+            //分页控件结束
+            builder.Append("</ul>");
+            //跳转
+            //   builder.Append("跳转到<input type='text'   value='10'/>");
+
+        }
+        else
+        {
+            builder.Append("<div class=\"pager-min\">");
+            if (pageInfo.PageNo != 1)
+            {
+                builder.Append(string.Format("<a class=\"prev\" href=\"{0}\"><span>上一页</span></a> ", UrlParamHelper.Instance.GetCurrentURLReplaceKey("PageNo", (pageInfo.PageNo - 1).ToString()), (pageInfo.PageNo - 1).ToString()));
+            }
+            else
+            {
+                builder.Append("<a class=\"prev dis\" href=\"javascript:;\"><span>上一页</span></a>");
+            }
+            builder.AppendFormat("<a class=\"page_select\" href=\"javascript:;\"><span class=\"page_tip\">第{0}/{1}页</span></a>", pageInfo.PageNo, pageInfo.PageCount);
+            if (pageInfo.PageNo != pageInfo.PageCount)
+            {
+                builder.AppendFormat("<a class=\"next\" href=\"{0}\"><span>下一页</span></a>", UrlParamHelper.Instance.GetCurrentURLReplaceKey("PageNo", (pageInfo.PageNo + 1).ToString()));
+            }
+            else
+            {
+                builder.Append("<a class=\"next dis\" href=\"javascript:;\"><span>下一页</span></a>");
+            }
+            builder.Append("<select data-role=\"select\" class=\"input_select\">");
+            for (var i = pageInfo.PageNo; i <= 100; i++)
+            {
+                builder.AppendFormat("<option value=\"{1}\">第{0}页</option>", i.ToString(), UrlParamHelper.Instance.GetCurrentURLReplaceKey("PageNo", i.ToString()));
+            }
+            builder.Append("</select>");
+        }
+    }
+}
+@Html.Raw(builder.ToString())

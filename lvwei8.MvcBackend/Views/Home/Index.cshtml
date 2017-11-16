@@ -1,0 +1,160 @@
+﻿@{
+    ViewBag.Title = "主页";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <title>驴尾巴管理中心</title>
+    @Styles.Render("~/Content/base.css")
+    @Styles.Render("~/Content/font/font.css")
+    @if (lvwei8.Common.Helpers.CheckerHelper.DetectMobile)
+    {
+        @Styles.Render("~/Content/responsive.css")
+    }
+    @Scripts.Render("~/Scripts/jquery-3.1.0.min.js")
+    @Scripts.Render("~/Scripts/typed.js")
+    @Scripts.Render("~/Scripts/my.js")
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?f8d32c57a88c2b58e2db56d93c15367a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body class="e-index">
+    <div class="e-wrapper">
+        <div class="e-navigation">
+            <nav class="e-navbar menu-bar">
+                <div class="page">
+                    <div class="row">
+                        <div class="g-md-12 e-menu-wrapper">
+                            <div class="pull-left">
+                                <div class="e-logo">
+                                    <a href="@Url.Action("Index","Home")"><img src=@Url.Content("~/Content/images/logo.png")></a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="g-lg-6 g-sm-6 pull-right">
+                                    @Html.Partial("_LoginPartial")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="header-wrapper">
+        <div class="header-background">
+            <div class="overlay"></div>
+        </div>
+        <div class="page">
+            <div class="row">
+                <div class="title-wrapper g-lg-12 g-md-12 g-sm-12 g-xs-12">
+                    <h2 class="animated fadeIn">欢迎使用驴尾巴管理平台 <span class="title-create">驴尾巴<span id="typing"></span></span></h2>
+                    <p class="animated fadeIn"><a href="http://www.114995.com">驴尾巴</a>是有驴尾科技旅游公司打造的品牌...</a></p>
+                    <p class="animated fadeIn"><a class="btn btn-white" id="portfolio-link" href="@Url.Content("~/Manage")"><i class="fa fa-camera"></i> 管理中心</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    @{
+        var carUrl = Request.Url.GetLeftPart(UriPartial.Authority).ToString() + "/ApkC/exiu-car.apk";
+        var carDownloadUrl = Request.Url.GetLeftPart(UriPartial.Authority).ToString() + "/mobile/downapp.html?apptype=apkc";
+        var carQrUrl = string.Format("{1}/Qr/Image?content={0}&size=180", carDownloadUrl, Request.Url.GetLeftPart(UriPartial.Authority).ToString());
+
+        var storeUrl = Request.Url.GetLeftPart(UriPartial.Authority).ToString() + "/ApkB/exiu-store.apk";
+        var storeDownloadUrl = Request.Url.GetLeftPart(UriPartial.Authority).ToString() + "/mobile/downapp.html?apptype=apkb";
+        var storeQrUrl = string.Format("{1}/Qr/Image?content={0}&size=180", storeDownloadUrl, Request.Url.GetLeftPart(UriPartial.Authority).ToString());
+
+        var expertUrl = Request.Url.GetLeftPart(UriPartial.Authority).ToString() + "/ApkE/exiu-expert.apk";
+        var expertDownloadUrl = Request.Url.GetLeftPart(UriPartial.Authority).ToString() + "/mobile/downapp.html?apptype=apke";
+        var expertQrUrl = string.Format("{1}/Qr/Image?content={0}&size=180", expertDownloadUrl, Request.Url.GetLeftPart(UriPartial.Authority).ToString());
+
+        var acrUrl = Request.Url.GetLeftPart(UriPartial.Authority).ToString() + "/ApkS/exiu-acr.apk";
+        var acrDownloadUrl = Request.Url.GetLeftPart(UriPartial.Authority).ToString() + "/mobile/downapp.html?apptype=apks";
+        var acrQrUrl = string.Format("{1}/Qr/Image?content={0}&size=180", acrDownloadUrl, Request.Url.GetLeftPart(UriPartial.Authority).ToString());
+
+        var pinUrl = Request.Url.GetLeftPart(UriPartial.Authority).ToString() + "/ApkP/exiu-pin.apk";
+        var pinDownloadUrl = Request.Url.GetLeftPart(UriPartial.Authority).ToString() + "/mobile/downapp.html?apptype=apkp";
+        var pinQrUrl = string.Format("{1}/Qr/Image?content={0}&size=180", pinDownloadUrl, Request.Url.GetLeftPart(UriPartial.Authority).ToString());
+
+        var gatherUrl = Request.Url.GetLeftPart(UriPartial.Authority).ToString() + "/ApkG/exiu-gather.apk";
+        var gatherDownloadUrl = Request.Url.GetLeftPart(UriPartial.Authority).ToString() + "/mobile/downapp.html?apptype=apkg";
+        var gatherQrUrl = string.Format("{1}/Qr/Image?content={0}&size=180", gatherDownloadUrl, Request.Url.GetLeftPart(UriPartial.Authority).ToString());
+    }
+    <div id="section-wrapper" class="section-wrapper g-lg-12 g-md-12 g-sm-12 g-xs-12" style="margin-top:600px;">
+        <div class="app-area section">
+            <div class="page">
+                <div class="row">
+                    <div class="g-sm-4">
+                        <div class="service-item">
+                            <i class="fa fa-cloud"></i>
+                            <h5 class="alt-font">大数据云平台</h5>
+                            <div class="service-desc">
+                                <p>驴尾巴整合用户旅游尾单大数据。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="g-sm-4">
+                        <div class="service-item">
+                            <i class="fa fa-database"></i>
+                            <h5 class="alt-font">管理数据</h5>
+                            <div class="service-desc">
+                                <p>集中存储，使得员工操作不再出错，工作效率倍增，数据自动互相引用、彼此同步，形成一个有机整体。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="g-sm-4">
+                        <div class="service-item">
+                            <i class="fa fa-mobile"></i>
+                            <h5 class="alt-font">“掌”控一切</h5>
+                            <div class="service-desc">
+                                <p> 云适配，自动生成移动信息系统，智能手机、平板电脑均可操作，满足移动办公需要，随时随地掌控一切!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bg g-lg-12 g-md-12 g-sm-12 g-xs-12" id="footer">
+        <div class="page">
+            <div class="row">
+                @if (lvwei8.Common.Helpers.CheckerHelper.DetectMobile)
+                {
+                    <p>驴尾科技技术有限公司</p>
+                }
+                else
+                {
+                    <p>驴尾科技技术有限公司</p>
+                    <p>Copyright &copy; @DateTime.Now.Year lvwei8.com</p>
+                }
+            </div>
+        </div>
+    </div>
+    <script>
+        jQuery(document).ready(function ($) {
+            $("#typing").typed({
+                strings: ["只做尾单的旅游平台", "客户第一 员工第二!", "热爱旅游,热爱生活!"],
+                typeSpeed: 0,
+                backSpeed: 0,
+                startDelay: 1500,
+                backDelay: 3500,
+                loop: false,
+                loopCount: 10,
+                showCursor: true
+            });
+        });
+    </script>
+    <!--[if IE 6]>
+        @Scripts.Render("~/Scripts/ie6png.js")
+    <![endif]-->
+</body>
+</html>

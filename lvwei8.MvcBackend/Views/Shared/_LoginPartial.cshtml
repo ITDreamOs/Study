@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNet.Identity
+@using System.IdentityModel.Claims
+@using Microsoft.AspNet.Identity.Owin;
+@using lvwei8.MvcBackend.App_Start;
+@using lvwei8.MvcBackend.Models;
+@if (Request.IsAuthenticated && (Autofac.Integration.Mvc.AutofacDependencyResolver.Current.GetService(typeof(ApplicationUserManager)) as ApplicationUserManager).FindById(User.Identity.GetUserId()) == null)
+{
+    //处理Cookie有,但数据库不存在的情况
+    System.Web.HttpContext.Current.GetOwinContext().Authentication.SignOut();
+    Session["MyMenu"] = null;
+}
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <ul class="userInfo fix">
+            <li>
+                @{
+                    //.Where(c => c.Type == ClaimTypes.Role)
+                    //.Select(c => c.Value).ToList();
+
+                    var roles = (Autofac.Integration.Mvc.AutofacDependencyResolver.Current.GetService(typeof(ApplicationUserManager)) as ApplicationUserManager).GetRoles(User.Identity.GetUserId());
+                    var roleManager = (Autofac.Integration.Mvc.AutofacDependencyResolver.Current.GetService(typeof(ApplicationRoleManager)) as ApplicationRoleManager);
+                    List<String> roleNames = new List<string>();
+                    foreach (var role in roles)
+                    {
+                        string roleName = roleManager.FindById(role).Name;
+                        if (role == BackEndRoles.SubStation.ToString())
+                        {
+                            var user = (Autofac.Integration.Mvc.AutofacDependencyResolver.Current.GetService(typeof(ApplicationUserManager)) as ApplicationUserManager).FindByName(User.Identity.GetUserId());
+                            roleName = user.AreaNamesForDisplay + "分站";
+                        }
+                        roleNames.Add(roleName);
+                    }
+
+                }
+                @Html.ActionLink("你好 " + User.Identity.GetUserName() + "!(" + String.Join(",", roleNames.ToArray()) + ")", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-user"></i> 退出</a></li>
+        </ul>
+
+                        }
+                    }
+                    else
+                    {
+                        <ul class="userInfo fix">
+                            @*<li>@Html.ActionLink("注册", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+                            <li><a href="@Url.Action("Login","Account")" id="loginLink"><i class="fa fa-user"></i> 登录</a></li>
+                        </ul>
+
+                    }

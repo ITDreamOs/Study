@@ -1,0 +1,99 @@
+﻿@model lvwei8.Model.Models.AreaDbModel
+
+@{
+    ViewBag.Title = "区域删除";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p class="warning">@Request.QueryString["ErrorMsg"]</p>
+<div class="tips tips-warning">
+    <div class="tips-icon"><i class="fa fa-warning"></i></div>
+    <div class="tips-content">
+        <h4 class="tips-info">您确定要删除该条记录?</h4>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-heading">AreaDbModel</div>
+    <div class="panel-body">
+        <dl class="fieldset">
+            <dt>
+                @Html.DisplayName("区域码")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Code)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("区域名称")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("首字母")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstLetter)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("是否是热门城市")
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsCityBlock)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("行政区全称")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("百度区域名称")
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BaiduName)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("百度区域全名称")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BaiduFullName)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("城市中心点经度")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Longitude)
+            </dd>
+            <dt>
+                @Html.DisplayName("城市中心点纬度")
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Latitude)
+            </dd>
+        </dl>
+
+
+
+        @using (Html.BeginForm("DeleteConfirm", "Area"))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("id", @Model.Code)
+
+            <div class='form-btn pull-center'>
+                <input type="submit" value="删除" class="btn btn-red" />&nbsp;&nbsp;<a class="btn btn-sub" href="@Url.Action("Index")"> 返回 </a>
+            </div>
+        }
+
+    </div>

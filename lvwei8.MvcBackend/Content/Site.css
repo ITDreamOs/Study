@@ -1,0 +1,31 @@
+﻿/*上传图片预览*/
+.preview li {
+    float: left;
+    width: 160px;
+    height: 100px;
+    margin-right: 5px;
+}
+
+.preview img {
+    width: 150px;
+    height: 90px;
+    border: 1px solid #ccc;
+    padding: 1px;
+}
+
+.preview li p {
+    cursor: pointer;
+    text-align: center;
+    color: #428bca;
+}
+
+li, ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.thumbnail img {
+    width: 200px;
+    height: 120px;
+}

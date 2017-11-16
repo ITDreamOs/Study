@@ -1,0 +1,84 @@
+﻿@model lvwei8.Model.Models.AreaDbModel
+
+@{
+    ViewBag.Title = "区域详情";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+
+    <dl class="fieldset">
+        <dt>
+            @Html.DisplayName("区域码")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("区域名称")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("首字母")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstLetter)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("是否是热门城市")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsCityBlock)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("行政区全称")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("百度区域名称")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BaiduName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("百度区域全名称")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaiduFullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("城市中心点经度")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longitude)
+        </dd>
+        <dt>
+            @Html.DisplayName("城市中心点纬度")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Latitude)
+        </dd>
+
+    </dl>
+</div>
+<div class='form-btn pull-center'>
+    <a class="btn btn-main" href="@Url.Action("Edit",new {  id = Model.Code })"> 编辑 </a>&nbsp;&nbsp;<a class="btn btn-sub" href="@Url.Action("Index")"> 返回 </a>
+</div>
+

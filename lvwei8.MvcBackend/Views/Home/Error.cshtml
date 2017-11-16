@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>出错啦 - 驴尾巴</title>
+    @Styles.Render("~/Content/base.css")
+    @Styles.Render("~/Content/err.css")
+</head>
+<body>
+    <div id="far-clouds" class="far-clouds stage"></div>
+    <div id="near-clouds" class="near-clouds stage"></div>
+    <section>
+        <div class="page">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="balloon">
+                        <h2 class="fadeInDown animated">到此为止！你哪里也去不了啦</h2>
+                        <h3 class="fadeInUp animated">服务器或程序出现错误，请联系网站管理员！</h3>
+                        <div class="bounceIn animated">
+                            <img src="@Url.Content("~/Content/images/balloon.png")" alt="balloon">
+                        </div>
+                        <div class="input-group fadeInUpBtn">
+                            <div class="input-group-btn">
+                                <a class="btn btn-red" href=@Url.Action("Index","Home")>返回首页</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="copyrights fadeIn">
+                        <p>驴尾科技有限公司</p>
+                        <p>Copyright &copy; @DateTime.Now.Year lvwei8.com. All Rights Reserved. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+

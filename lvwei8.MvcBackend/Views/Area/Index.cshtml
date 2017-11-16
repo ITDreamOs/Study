@@ -1,0 +1,62 @@
+﻿@model IEnumerable<lvwei8.Model.Models.AreaDbModel>
+
+@{
+    ViewBag.Title = "区域列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p class="text-success">@Request.QueryString["Message"]</p>
+<div class="row">
+    <div class="g-md-10">
+        @using (Html.BeginForm("Index", "Area", FormMethod.Get, new { @class = "inform", role = "form" }))
+        {
+            <div class="form-group">
+                <a href="@Url.Action("Create")" class="btn btn-main">新增</a>
+                <label class="sr-only" for="searchInput">关键字</label>
+                <input class="form-control" id="searchInput" placeholder="请输入类别名称" name="KeyWords" value="@ViewBag.KeyWords" />
+            </div>
+            <button type="submit" class="btn btn-main btn-search">查询</button>
+        }
+    </div>
+</div>
+
+<table class="footable table">
+    <thead>
+        <tr>
+            <th>
+                区域码
+            </th>
+            <th>
+                区域名称
+            </th>
+            <th>
+                区域全名称
+            </th>
+            <th>管理</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Edit", new { id = item.Code }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Code }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Code })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="pull-center">
+    @Html.Partial("_PartialPage", new lvwei8.Service.Base.PageModel() { PageSize = ViewBag.PageSize, PageNo = ViewBag.PageNo, PageCount = ViewBag.PageCount, RecordCount = ViewBag.RecordCount })
+</div>

@@ -1,0 +1,1293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{38A42DEF-F23E-4F55-B4DB-976612D5F904}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>lvwei8.WebBackend</RootNamespace>
+    <AssemblyName>lvwei8.WebBackend</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac, Version=4.6.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.0\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Engine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Engine.3.0.2\lib\net4.5.2\Autofac.Engine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.1.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.2.16.3.0\lib\net45\CsvHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\lvwei8.WebAPI\Bin\EntityFramework.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.7\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.3.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.3.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.3.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.3.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.3.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.3.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RouteDebugger, Version=2.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\routedebugger.2.1.5\lib\net40\RouteDebugger.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Z.ExtensionMethods, Version=2.0.11.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.ExtensionMethods.2.0.11\lib\net45\Z.ExtensionMethods.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Codes\Common\GlobalVars.cs" />
+    <Compile Include="Common\ApkPackageUtil.cs" />
+    <Compile Include="Common\AreaUtil.cs" />
+    <Compile Include="Common\ChatHub.cs" />
+    <Compile Include="Common\ConfigHelper.cs" />
+    <Compile Include="Common\GlobalVars.cs" />
+    <Compile Include="Common\keywordFilterAttribute.cs" />
+    <Compile Include="Common\PasswordStrongerAuthorizeAttribute.cs" />
+    <Compile Include="Common\SubStationAuthorizeAttribute.cs" />
+    <Compile Include="Common\WashcarUser.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NavItem.cs" />
+    <Compile Include="Models\RoleBackend.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\base.css" />
+    <Content Include="Content\bootstrap-combobox.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrapValidator.css" />
+    <Content Include="Content\css\about-us.css" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\blog.css" />
+    <Content Include="Content\css\blue.css" />
+    <Content Include="Content\css\bootstrap-fileupload.css" />
+    <Content Include="Content\css\bootstrap-modal.css" />
+    <Content Include="Content\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\css\bootstrap-responsive1.min.css" />
+    <Content Include="Content\css\bootstrap-tag.css" />
+    <Content Include="Content\css\bootstrap-toggle-buttons.css" />
+    <Content Include="Content\css\bootstrap-tree.css" />
+    <Content Include="Content\css\bootstrap-wysihtml5.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\brown.css" />
+    <Content Include="Content\css\chosen.css" />
+    <Content Include="Content\css\clockface.css" />
+    <Content Include="Content\css\colorpicker.css" />
+    <Content Include="Content\css\coming-soon.css" />
+    <Content Include="Content\css\datepicker.css" />
+    <Content Include="Content\css\daterangepicker.css" />
+    <Content Include="Content\css\datetimepicker.css" />
+    <Content Include="Content\css\default.css" />
+    <Content Include="Content\css\dropzone.css" />
+    <Content Include="Content\css\DT_bootstrap.css" />
+    <Content Include="Content\css\email.css" />
+    <Content Include="Content\css\error.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\fullcalendar.css" />
+    <Content Include="Content\css\glyphicons.css" />
+    <Content Include="Content\css\grey.css" />
+    <Content Include="Content\css\halflings.css" />
+    <Content Include="Content\css\inbox.css" />
+    <Content Include="Content\css\invoice.css" />
+    <Content Include="Content\css\jquery-ui-1.10.1.custom.min.css" />
+    <Content Include="Content\css\jquery.easy-pie-chart.css" />
+    <Content Include="Content\css\jquery.fancybox.css" />
+    <Content Include="Content\css\jquery.fileupload-ui.css" />
+    <Content Include="Content\css\jquery.gritter.css" />
+    <Content Include="Content\css\jquery.nestable.css" />
+    <Content Include="Content\css\jquery.tagsinput.css" />
+    <Content Include="Content\css\jquery.ui.slider.css" />
+    <Content Include="Content\css\jqvmap.css" />
+    <Content Include="Content\css\light.css" />
+    <Content Include="Content\css\lock.css" />
+    <Content Include="Content\css\login-soft.css" />
+    <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\multi-select-metro.css" />
+    <Content Include="Content\css\news.css" />
+    <Content Include="Content\css\pricing-tables.css" />
+    <Content Include="Content\css\print.css" />
+    <Content Include="Content\css\profile.css" />
+    <Content Include="Content\css\promo.css" />
+    <Content Include="Content\css\purple.css" />
+    <Content Include="Content\css\search.css" />
+    <Content Include="Content\css\select2_metro.css" />
+    <Content Include="Content\css\style-metro.css" />
+    <Content Include="Content\css\style-non-responsive.css" />
+    <Content Include="Content\css\style-responsive.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\timeline.css" />
+    <Content Include="Content\css\timepicker.css" />
+    <Content Include="Content\css\uniform.default.css" />
+    <Content Include="Content\err.css" />
+    <Content Include="Content\font\font.css" />
+    <Content Include="Content\font\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\gallery.html" />
+    <Content Include="Content\ie.css" />
+    <Content Include="Content\image\1.jpg" />
+    <Content Include="Content\image\10.jpg" />
+    <Content Include="Content\image\11.jpg" />
+    <Content Include="Content\image\2.jpg" />
+    <Content Include="Content\image\3.jpg" />
+    <Content Include="Content\image\4.jpg" />
+    <Content Include="Content\image\5.jpg" />
+    <Content Include="Content\image\6.jpg" />
+    <Content Include="Content\image\7.jpg" />
+    <Content Include="Content\image\8.jpg" />
+    <Content Include="Content\image\9.jpg" />
+    <Content Include="Content\image\alpha.png" />
+    <Content Include="Content\image\amazon.png" />
+    <Content Include="Content\image\animated-overlay.gif" />
+    <Content Include="Content\image\avatar.png" />
+    <Content Include="Content\image\avatar1.jpg" />
+    <Content Include="Content\image\avatar1_small.jpg" />
+    <Content Include="Content\image\avatar2.jpg" />
+    <Content Include="Content\image\avatar3.jpg" />
+    <Content Include="Content\image\behance.png" />
+    <Content Include="Content\image\bg-input-focus.png" />
+    <Content Include="Content\image\bg-input.png" />
+    <Content Include="Content\image\bg-opacity.png" />
+    <Content Include="Content\image\bg-white-lock.png" />
+    <Content Include="Content\image\bg\1.jpg" />
+    <Content Include="Content\image\bg\2.jpg" />
+    <Content Include="Content\image\bg\3.jpg" />
+    <Content Include="Content\image\bg\4.jpg" />
+    <Content Include="Content\image\blank.gif" />
+    <Content Include="Content\image\blogger.png" />
+    <Content Include="Content\image\bstree-halflings.png" />
+    <Content Include="Content\image\chosen-sprite.png" />
+    <Content Include="Content\image\datatable-row-openclose.png" />
+    <Content Include="Content\image\deviantart.png" />
+    <Content Include="Content\image\dribbble.png" />
+    <Content Include="Content\image\dropbox.png" />
+    <Content Include="Content\image\earth.jpg" />
+    <Content Include="Content\image\evernote.png" />
+    <Content Include="Content\image\facebook.png" />
+    <Content Include="Content\image\fancybox_loading.gif" />
+    <Content Include="Content\image\fancybox_overlay.png" />
+    <Content Include="Content\image\fancybox_sprite.png" />
+    <Content Include="Content\image\favicon.ico" />
+    <Content Include="Content\image\fontawesome-webfont.svg" />
+    <Content Include="Content\image\forrst.png" />
+    <Content Include="Content\image\github.png" />
+    <Content Include="Content\image\glyphicons-halflings-white.png" />
+    <Content Include="Content\image\glyphicons-halflings.png" />
+    <Content Include="Content\image\glyphicons-regular.svg" />
+    <Content Include="Content\image\glyphicons-white.png" />
+    <Content Include="Content\image\glyphicons-white.svg" />
+    <Content Include="Content\image\glyphicons.png" />
+    <Content Include="Content\image\glyphiconshalflings-regular.svg" />
+    <Content Include="Content\image\glyphicons_halflings-white.png" />
+    <Content Include="Content\image\glyphicons_halflings-white.svg" />
+    <Content Include="Content\image\glyphicons_halflings.png" />
+    <Content Include="Content\image\glyphicons_halflings.svg" />
+    <Content Include="Content\image\googleplus.png" />
+    <Content Include="Content\image\gritter-light.png" />
+    <Content Include="Content\image\gritter.png" />
+    <Content Include="Content\image\hor-menu-search-close-white.png" />
+    <Content Include="Content\image\hor-menu-search-close.png" />
+    <Content Include="Content\image\hor-menu-search.png" />
+    <Content Include="Content\image\hue.png" />
+    <Content Include="Content\image\icon-color-close.png" />
+    <Content Include="Content\image\icon-color.png" />
+    <Content Include="Content\image\icon-img-down.png" />
+    <Content Include="Content\image\icon-img-up.png" />
+    <Content Include="Content\image\icon\bigger.png" />
+    <Content Include="Content\image\icon\close_big.png" />
+    <Content Include="Content\image\icon\close_small.png" />
+    <Content Include="Content\image\icon\download.png" />
+    <Content Include="Content\image\icon\full_screen.png" />
+    <Content Include="Content\image\icon\next.png" />
+    <Content Include="Content\image\icon\prev.png" />
+    <Content Include="Content\image\icon\rotate.png" />
+    <Content Include="Content\image\icon\smaller.png" />
+    <Content Include="Content\image\ie-spacer.gif" />
+    <Content Include="Content\image\ie\home.gif" />
+    <Content Include="Content\image\ie\logo.gif" />
+    <Content Include="Content\image\image1.jpg" />
+    <Content Include="Content\image\image2.jpg" />
+    <Content Include="Content\image\image3.jpg" />
+    <Content Include="Content\image\image4.jpg" />
+    <Content Include="Content\image\image5.jpg" />
+    <Content Include="Content\image\img1.png" />
+    <Content Include="Content\image\img1_2.png" />
+    <Content Include="Content\image\img2.png" />
+    <Content Include="Content\image\img3.png" />
+    <Content Include="Content\image\img4.png" />
+    <Content Include="Content\image\inbox-nav-arrow-blue.png" />
+    <Content Include="Content\image\instagram.png" />
+    <Content Include="Content\image\iphone.png" />
+    <Content Include="Content\image\item_img.jpg" />
+    <Content Include="Content\image\item_img1.jpg" />
+    <Content Include="Content\image\jolicloud.png" />
+    <Content Include="Content\image\KwPYo.jpg" />
+    <Content Include="Content\image\last-fm.png" />
+    <Content Include="Content\image\linkedin.png" />
+    <Content Include="Content\image\loading.gif" />
+    <Content Include="Content\image\logo-big.png" />
+    <Content Include="Content\image\logo.png" />
+    <Content Include="Content\image\logo_azteca.jpg" />
+    <Content Include="Content\image\logo_conquer.jpg" />
+    <Content Include="Content\image\logo_metronic.jpg" />
+    <Content Include="Content\image\menu-toggler.png" />
+    <Content Include="Content\image\overlay-icon.png" />
+    <Content Include="Content\image\photo1.jpg" />
+    <Content Include="Content\image\photo2.jpg" />
+    <Content Include="Content\image\photo3.jpg" />
+    <Content Include="Content\image\photo4.jpg" />
+    <Content Include="Content\image\photo5.jpg" />
+    <Content Include="Content\image\photo6.jpg" />
+    <Content Include="Content\image\picasa.png" />
+    <Content Include="Content\image\pintrest.png" />
+    <Content Include="Content\image\portlet-collapse-icon-white.png" />
+    <Content Include="Content\image\portlet-collapse-icon.png" />
+    <Content Include="Content\image\portlet-config-icon-white.png" />
+    <Content Include="Content\image\portlet-config-icon.png" />
+    <Content Include="Content\image\portlet-expand-icon-white.png" />
+    <Content Include="Content\image\portlet-expand-icon.png" />
+    <Content Include="Content\image\portlet-reload-icon-white.png" />
+    <Content Include="Content\image\portlet-reload-icon.png" />
+    <Content Include="Content\image\portlet-remove-icon-white.png" />
+    <Content Include="Content\image\portlet-remove-icon.png" />
+    <Content Include="Content\image\preview_02.png" />
+    <Content Include="Content\image\preview_03.png" />
+    <Content Include="Content\image\preview_04.png" />
+    <Content Include="Content\image\preview_05.png" />
+    <Content Include="Content\image\preview_06.png" />
+    <Content Include="Content\image\preview_07.png" />
+    <Content Include="Content\image\preview_08.png" />
+    <Content Include="Content\image\preview_09.png" />
+    <Content Include="Content\image\preview_10.png" />
+    <Content Include="Content\image\preview_11.png" />
+    <Content Include="Content\image\preview_12.png" />
+    <Content Include="Content\image\preview_13.png" />
+    <Content Include="Content\image\preview_14.png" />
+    <Content Include="Content\image\preview_15.png" />
+    <Content Include="Content\image\preview_16.png" />
+    <Content Include="Content\image\preview_17.png" />
+    <Content Include="Content\image\profile-img.png" />
+    <Content Include="Content\image\profile.jpg" />
+    <Content Include="Content\image\progressbar.gif" />
+    <Content Include="Content\image\remove-icon-small.png" />
+    <Content Include="Content\image\rss.png" />
+    <Content Include="Content\image\saturation.png" />
+    <Content Include="Content\image\search-icon.png" />
+    <Content Include="Content\image\select2-spinner.gif" />
+    <Content Include="Content\image\select2.png" />
+    <Content Include="Content\image\select2x2.png" />
+    <Content Include="Content\image\sidebar-menu-arrow.png" />
+    <Content Include="Content\image\sidebar-search-close.png" />
+    <Content Include="Content\image\sidebar-toggler.jpg" />
+    <Content Include="Content\image\skype.png" />
+    <Content Include="Content\image\social_facebook.png" />
+    <Content Include="Content\image\social_googleplus.png" />
+    <Content Include="Content\image\social_linkedin.png" />
+    <Content Include="Content\image\social_rss.png" />
+    <Content Include="Content\image\social_twitter.png" />
+    <Content Include="Content\image\sort_asc.png" />
+    <Content Include="Content\image\sort_asc_disabled.png" />
+    <Content Include="Content\image\sort_both.png" />
+    <Content Include="Content\image\sort_desc.png" />
+    <Content Include="Content\image\sort_desc_disabled.png" />
+    <Content Include="Content\image\spotify.png" />
+    <Content Include="Content\image\sprite.png" />
+    <Content Include="Content\image\spritemap%402x.png" />
+    <Content Include="Content\image\spritemap.png" />
+    <Content Include="Content\image\stumbleupon.png" />
+    <Content Include="Content\image\switch.png" />
+    <Content Include="Content\image\syncfusion-icons-white.png" />
+    <Content Include="Content\image\syncfusion-icons.png" />
+    <Content Include="Content\image\tumblr.png" />
+    <Content Include="Content\image\twitter.png" />
+    <Content Include="Content\image\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\image\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\image\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\image\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\image\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\image\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\image\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\image\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\image\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\image\ui-icons_222222_256x240.png" />
+    <Content Include="Content\image\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\image\ui-icons_888888_256x240.png" />
+    <Content Include="Content\image\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\image\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\image\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\image\vimeo.png" />
+    <Content Include="Content\image\vk.png" />
+    <Content Include="Content\image\walmart.png" />
+    <Content Include="Content\image\wordpress.png" />
+    <Content Include="Content\image\xing.png" />
+    <Content Include="Content\image\yahoo.png" />
+    <Content Include="Content\image\youtube.png" />
+    <Content Include="Content\jsoneditor.min.css" />
+    <Content Include="Content\master.css" />
+    <Content Include="Content\mobile.css" />
+    <Content Include="Content\modals.css" />
+    <Content Include="Content\photoswipe.css" />
+    <Content Include="Content\responsive.css" />
+    <Content Include="Content\simiditor\css\app.css" />
+    <Content Include="Content\simiditor\css\simditor.css" />
+    <Content Include="Content\simiditor\css\simditorbootstrap.css" />
+    <Content Include="Content\simiditor\scripts\hotkeys.js" />
+    <Content Include="Content\simiditor\scripts\jquery.min.js" />
+    <Content Include="Content\simiditor\scripts\mobilecheck.js" />
+    <Content Include="Content\simiditor\scripts\module.js" />
+    <Content Include="Content\simiditor\scripts\page-demo.js" />
+    <Content Include="Content\simiditor\scripts\page-doc.js" />
+    <Content Include="Content\simiditor\scripts\page-download.js" />
+    <Content Include="Content\simiditor\scripts\page-form.js" />
+    <Content Include="Content\simiditor\scripts\simditor.js" />
+    <Content Include="Content\simiditor\scripts\uploader.js" />
+    <Content Include="Content\simiditor\scripts\urlcheck.js" />
+    <Content Include="Content\simiditor\scripts\videocheck.js" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\uploadify\jquery.uploadify.js" />
+    <Content Include="Content\uploadify\main.js" />
+    <Content Include="Content\uploadify\upload.js" />
+    <Content Include="Content\uploadify\uploadify-cancel.png" />
+    <Content Include="Content\uploadify\uploadify.css" />
+    <Content Include="Content\uploadify\uploadify.swf" />
+    <Content Include="Content\weui.css" />
+    <Content Include="Content\weui.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\css\Site.css" />
+    <Content Include="Scripts\additional-methods.min.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\Bmap.js" />
+    <Content Include="Scripts\bootstrap-colorpicker.js" />
+    <Content Include="Scripts\bootstrap-combobox.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap-fileupload.js" />
+    <Content Include="Scripts\bootstrap-modal.js" />
+    <Content Include="Scripts\bootstrap-modalmanager.js" />
+    <Content Include="Scripts\bootstrap-rtl.min.js" />
+    <Content Include="Scripts\bootstrap-tag.js" />
+    <Content Include="Scripts\bootstrap-timepicker.js" />
+    <Content Include="Scripts\bootstrap-tree.js" />
+    <Content Include="Scripts\bootstrap-typeahead.js" />
+    <Content Include="Scripts\bootstrap-wysihtml5.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\image\css" />
+    <Content Include="Content\image\fontawesome-webfont.eot" />
+    <Content Include="Content\image\fontawesome-webfont.ttf" />
+    <Content Include="Content\image\fontawesome-webfont.woff" />
+    <Content Include="Content\image\glyphicons-regular.eot" />
+    <Content Include="Content\image\glyphicons-regular.ttf" />
+    <Content Include="Content\image\glyphicons-regular.woff" />
+    <Content Include="Content\image\glyphiconshalflings-regular.eot" />
+    <Content Include="Content\image\glyphiconshalflings-regular.ttf" />
+    <Content Include="Content\image\glyphiconshalflings-regular.woff" />
+    <Content Include="Content\image\js" />
+    <Content Include="Content\ApplyTemplate.xls" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\impc.csv" />
+    <Content Include="Content\WillApplyTemplate.xls" />
+    <Content Include="Content\font\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\font\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\font\fonts\FontAwesome.otf" />
+    <Content Include="CacheFileDependency\AreaList.cache" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Properties\PublishProfiles\test.pubxml" />
+    <Content Include="Scripts\bootstrapValidator.js" />
+    <Content Include="Scripts\breakpoints.js" />
+    <Content Include="Scripts\breakpoints.min.js" />
+    <Content Include="Scripts\calendar.js" />
+    <Content Include="Scripts\canvas-to-blob.min.js" />
+    <Content Include="Scripts\charts.js" />
+    <Content Include="Scripts\china.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
+    <Content Include="Scripts\ckeditor.js" />
+    <Content Include="Scripts\clockface.js" />
+    <Content Include="Scripts\coming-soon.js" />
+    <Content Include="Scripts\contact-us.js" />
+    <Content Include="Scripts\date.js" />
+    <Content Include="Scripts\daterangepicker.js" />
+    <Content Include="Scripts\dropzone.js" />
+    <Content Include="Scripts\DT_bootstrap.js" />
+    <Content Include="Scripts\echarts-all-3.0.0.js" />
+    <Content Include="Scripts\excanvas.js" />
+    <Content Include="Scripts\excanvas.min.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\110100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\120100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\130100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\130200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\130300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\130400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\130500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\130600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\130700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\130800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\130900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\131000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\131100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\140100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\140200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\140300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\140400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\140500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\140600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\140700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\140800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\140900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\141000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\141100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\150100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\150200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\150300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\150400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\150500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\150600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\150700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\150800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\150900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\152200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\152500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\152900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\210100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\210200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\210300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\210400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\210500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\210600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\210700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\210800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\210900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\211000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\211100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\211200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\211300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\211400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\220100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\220200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\220300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\220400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\220500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\220600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\220700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\220800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\222400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\230100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\230200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\230300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\230400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\230500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\230600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\230700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\230800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\230900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\231000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\231100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\231200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\232700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\310100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\310200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\320100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\320200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\320300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\320400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\320500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\320600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\320700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\320800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\320900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\321000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\321100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\321200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\321300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\330100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\330200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\330300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\330400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\330500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\330600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\330700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\330800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\330900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\331000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\331100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\340100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\340200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\340300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\340400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\340500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\340600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\340700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\340800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\341000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\341100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\341200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\341300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\341500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\341600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\341700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\341800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\350100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\350200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\350300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\350400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\350500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\350600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\350700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\350800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\350900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\360100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\360200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\360300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\360400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\360500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\360600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\360700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\360800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\360900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\361000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\361100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\370100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\370200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\370300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\370400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\370500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\370600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\370700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\370800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\370900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\371000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\371100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\371200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\371300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\371400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\371500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\371600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\371700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\410100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\410200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\410300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\410400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\410500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\410600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\410700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\410800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\410900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\411000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\411100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\411200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\411300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\411400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\411500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\411600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\411700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\420100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\420200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\420300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\420500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\420600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\420700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\420800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\420900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\421000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\421100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\421200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\421300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\422800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\429000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\430100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\430200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\430300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\430400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\430500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\430600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\430700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\430800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\430900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\431000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\431100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\431200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\431300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\433100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\440100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\440200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\440300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\440400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\440500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\440600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\440700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\440800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\440900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\441200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\441300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\441400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\441500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\441600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\441700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\441800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\441900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\442000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\445100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\445200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\445300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\450100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\450200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\450300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\450400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\450500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\450600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\450700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\450800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\450900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\451000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\451100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\451200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\451300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\451400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\460100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\460200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\460300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\469000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\500100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\510100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\510300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\510400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\510500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\510600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\510700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\510800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\510900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\511000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\511100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\511300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\511400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\511500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\511600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\511700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\511800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\511900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\512000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\513200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\513300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\513400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\520100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\520200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\520300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\520400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\522200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\522300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\522400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\522600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\522700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\530100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\530300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\530400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\530500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\530600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\530700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\530800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\530900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\532300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\532500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\532600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\532800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\532900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\533100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\533300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\533400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\540100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\542100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\542200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\542300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\542400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\542500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\542600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\610100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\610200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\610300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\610400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\610500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\610600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\610700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\610800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\610900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\611000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\620100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\620200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\620300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\620400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\620500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\620600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\620700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\620800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\620900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\621000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\621100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\621200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\622900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\623000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\630100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\632100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\632200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\632300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\632500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\632600.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\632700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\632800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\640100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\640200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\640300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\640400.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\640500.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\650100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\650200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\652100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\652200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\652300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\652700.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\652800.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\652900.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\653000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\653100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\653200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\654000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\654200.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\654300.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\659000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\710000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\810100.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\820000.js" />
+    <Content Include="Scripts\ExiuArea\ExiuCitys\china-main-city-map.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\anhui.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\aomen.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\beijing.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\chongqing.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\fujian.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\gansu.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\guangdong.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\guangxi.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\guizhou.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\hainan.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\hebei.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\heilongjiang.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\henan.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\hubei.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\hunan.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\jiangsu.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\jiangxi.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\jilin.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\liaoning.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\neimenggu.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\ningxia.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\qinghai.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\shandong.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\shanghai.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\shanxi.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\shanxi1.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\sichuan.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\tianjin.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\xianggang.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\xinjiang.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\xizang.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\yunnan.js" />
+    <Content Include="Scripts\ExiuArea\ExiuProvinces\zhejiang.js" />
+    <Content Include="Scripts\ExiuCityS.js" />
+    <Content Include="Scripts\ExiuProvinceS.js" />
+    <Content Include="Scripts\footable.js" />
+    <Content Include="Scripts\form-components.js" />
+    <Content Include="Scripts\form-fileupload.js" />
+    <Content Include="Scripts\form-samples.js" />
+    <Content Include="Scripts\form-validation.js" />
+    <Content Include="Scripts\form-wizard.js" />
+    <Content Include="Scripts\fullcalendar.min.js" />
+    <Content Include="Scripts\gallery.js" />
+    <Content Include="Scripts\gmaps.js" />
+    <Content Include="Scripts\helianthus.js" />
+    <Content Include="Scripts\ie6png.js" />
+    <Content Include="Scripts\inbox.js" />
+    <Content Include="Scripts\index.js" />
+    <Content Include="Scripts\jquery-1.10.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.0.min.map" />
+    <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <None Include="Scripts\jquery-3.1.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.0.js" />
+    <Content Include="Scripts\jquery-3.1.0.min.js" />
+    <Content Include="Scripts\jquery-3.1.0.slim.js" />
+    <Content Include="Scripts\jquery-3.1.0.slim.min.js" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\Jquery-flot\jquery.flot.js" />
+    <Content Include="Scripts\Jquery-flot\jquery.flot.min.js" />
+    <Content Include="Scripts\Jquery-flot\jquery.flot.pie.min.js" />
+    <Content Include="Scripts\Jquery-flot\jquery.flot.resize.min.js" />
+    <Content Include="Scripts\Jquery-flot\jquery.flot.symbol.min.js" />
+    <Content Include="Scripts\Jquery-flot\jquery.flot.time.min.js" />
+    <Content Include="Scripts\Jquery-flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.1.custom.min.js" />
+    <Content Include="Scripts\jquery.backstretch.min.js" />
+    <Content Include="Scripts\jquery.blockui.min.js" />
+    <Content Include="Scripts\jquery.bootpag.min.js" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.min.js" />
+    <Content Include="Scripts\jquery.cookie.min.js" />
+    <Content Include="Scripts\jquery.countdown.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.easy-pie-chart.js" />
+    <Content Include="Scripts\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\jquery.fileupload-fp.js" />
+    <Content Include="Scripts\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\jquery.fileupload.js" />
+    <Content Include="Scripts\jquery.flot.crosshair.js" />
+    <Content Include="Scripts\jquery.flot.js" />
+    <Content Include="Scripts\jquery.flot.pie.js" />
+    <Content Include="Scripts\jquery.flot.resize.js" />
+    <Content Include="Scripts\jquery.flot.stack.js" />
+    <Content Include="Scripts\jquery.gritter.js" />
+    <Content Include="Scripts\jquery.iframe-transport.js" />
+    <Content Include="Scripts\jquery.input-ip-address-control-1.0.min.js" />
+    <Content Include="Scripts\jquery.inputmask.bundle.min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.json.js" />
+    <Content Include="Scripts\jquery.knob.js" />
+    <Content Include="Scripts\jquery.multi-select.js" />
+    <Content Include="Scripts\jquery.nestable.js" />
+    <Content Include="Scripts\jquery.photo.gallery.js" />
+    <Content Include="Scripts\jquery.pulsate.min.js" />
+    <Content Include="Scripts\jquery.qrcode.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.min.js" />
+    <Content Include="Scripts\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\jquery.sparkline.min.js" />
+    <Content Include="Scripts\jquery.tagsinput.min.js" />
+    <Content Include="Scripts\jquery.toggle.buttons.js" />
+    <Content Include="Scripts\jquery.ui.widget.js" />
+    <Content Include="Scripts\jquery.uniform.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.vmap.europe.js" />
+    <Content Include="Scripts\jquery.vmap.germany.js" />
+    <Content Include="Scripts\jquery.vmap.js" />
+    <Content Include="Scripts\jquery.vmap.russia.js" />
+    <Content Include="Scripts\jquery.vmap.sampledata.js" />
+    <Content Include="Scripts\jquery.vmap.usa.js" />
+    <Content Include="Scripts\jquery.vmap.world.js" />
+    <Content Include="Scripts\jquery.xdr-transport.js" />
+    <Content Include="Scripts\jsoneditor.min.js" />
+    <Content Include="Scripts\jwysiwyg\jquery.wysiwyg.css" />
+    <Content Include="Scripts\jwysiwyg\jquery.wysiwyg.gif" />
+    <Content Include="Scripts\jwysiwyg\jquery.wysiwyg.jpg" />
+    <Content Include="Scripts\jwysiwyg\jquery.wysiwyg.js" />
+    <Content Include="Scripts\load-image.min.js" />
+    <Content Include="Scripts\lock.js" />
+    <Content Include="Scripts\login-soft.js" />
+    <Content Include="Scripts\login.js" />
+    <Content Include="Scripts\maps-google.js" />
+    <Content Include="Scripts\maps-vector.js" />
+    <Content Include="Scripts\Mapv.js" />
+    <Content Include="Scripts\markMap.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\my.js" />
+    <Content Include="Scripts\photoswipe-ui-default.min.js" />
+    <Content Include="Scripts\photoswipe.min.js" />
+    <Content Include="Scripts\pinchzoom.js" />
+    <Content Include="Scripts\portlet-draggable.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\search.js" />
+    <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\settings.js" />
+    <Content Include="Scripts\table-advanced.js" />
+    <Content Include="Scripts\table-editable.js" />
+    <Content Include="Scripts\table-managed.js" />
+    <Content Include="Scripts\tmpl.min.js" />
+    <Content Include="Scripts\typed.js" />
+    <Content Include="Scripts\ui-general.js" />
+    <Content Include="Scripts\ui-jqueryui.js" />
+    <Content Include="Scripts\ui-modals.js" />
+    <Content Include="Scripts\ui-nestable.js" />
+    <Content Include="Scripts\ui-sliders.js" />
+    <Content Include="Scripts\ui-tree.js" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Scripts\upload.js" />
+    <Content Include="Scripts\wysihtml5-0.3.0.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Views\Home\" />
+    <Folder Include="Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lvwei8.Common\lvwei8.Common.csproj">
+      <Project>{b186251f-55ef-47ac-8bb4-fc398f78714c}</Project>
+      <Name>lvwei8.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lvwei8.Model\lvwei8.Model.csproj">
+      <Project>{2c9a58ba-5eb6-40bb-828d-e58be753e980}</Project>
+      <Name>lvwei8.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lvwei8.Redis\lvwei8.Redis.csproj">
+      <Project>{52fe06f4-4c27-4a76-95ae-eabd1fe40154}</Project>
+      <Name>lvwei8.Redis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lvwei8.Service\lvwei8.Service.csproj">
+      <Project>{7a149060-1515-4451-91b0-4dd3a8dac433}</Project>
+      <Name>lvwei8.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52804</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52804/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

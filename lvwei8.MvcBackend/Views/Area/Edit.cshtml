@@ -1,0 +1,105 @@
+﻿@model lvwei8.Model.Models.AreaDbModel
+
+@{
+    ViewBag.Title = "编辑区域";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p class="warning">@Request.QueryString["ErrorMsg"]</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="myform">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Code)
+        @*<div class="form-group">
+                @Html.Label("区域码", new { @class = "control-label g-md-2" })
+                <div class="g-md-10">
+                    @Html.TextBoxFor(model => model.Code, new { @class = "form-control", @placeholder = "请输入区域码 一级区域：以0000结尾 市: 以00结尾（必填）" })
+                    @Html.ValidationMessageFor(model => model.Code)
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            @Html.Label("区域名称", new { @class = "control-label g-md-2" })
+            <div class="g-md-10">
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "请输入区域名称（必填）" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("行政等级", new { @class = "control-label g-md-2" })
+            <div class="g-md-10">
+                @Html.TextBoxFor(model => model.CityLevel, new { @class = "form-control", @placeholder = "请输入行政等级：一级：1 二级：2 三级：3  " })
+                @Html.ValidationMessageFor(model => model.CityLevel)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("首字母", new { @class = "control-label g-md-2" })
+            <div class="g-md-10">
+                @Html.TextBoxFor(model => model.FirstLetter, new { @class = "form-control", @placeholder = "请输入首字母（单个）" })
+                @Html.ValidationMessageFor(model => model.FirstLetter)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("是否是热门城市", new { @class = "control-label g-md-2" })
+            <div class="g-md-10">
+                @Html.EditorFor(model => model.IsCityBlock)
+                @Html.ValidationMessageFor(model => model.IsCityBlock)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("行政区全称", new { @class = "control-label g-md-2" })
+            <div class="g-md-10">
+                @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", @placeholder = "请输入行政区域名称，若是二级三级行政区已，分开" })
+                @Html.ValidationMessageFor(model => model.FullName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("百度区域名称", new { @class = "control-label g-md-2" })
+            <div class="g-md-10">
+                @Html.TextBoxFor(model => model.BaiduName, new { @class = "form-control", @placeholder = "请输入百度区域名称" })
+                @Html.ValidationMessageFor(model => model.BaiduName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("百度区域全名称", new { @class = "control-label g-md-2" })
+            <div class="g-md-10">
+                @Html.TextBoxFor(model => model.BaiduFullName, new { @class = "form-control", @placeholder = "请输入百度区域全称" })
+                @Html.ValidationMessageFor(model => model.BaiduFullName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("城市中心点经度", new { @class = "control-label g-md-2" })
+            <div class="g-md-10">
+                @Html.TextBoxFor(model => model.Longitude, new { @class = "form-control", @placeholder = "请输入城市中心点经度" })
+                @Html.ValidationMessageFor(model => model.Longitude)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("城市中心点纬度", new { @class = "control-label g-md-2" })
+            <div class="g-md-10">
+                @Html.TextBoxFor(model => model.Latitude, new { @class = "form-control", @placeholder = "请输入城市中心点纬度" })
+                @Html.ValidationMessageFor(model => model.Latitude)
+            </div>
+        </div>
+        
+
+        <div class='form-btn pull-center'>
+            <input type="submit" value="保存" class="btn btn-main" />&nbsp;&nbsp;<a class="btn btn-sub" href="@Url.Action("Index")"> 返回 </a>
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

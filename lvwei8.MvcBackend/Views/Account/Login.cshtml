@@ -1,0 +1,151 @@
+﻿@model lvwei8.MvcBackend.Models.LoginViewModel
+@{
+    ViewBag.Title = "登录";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <title>@ViewBag.Title. - 驴尾巴管理中心</title>
+    <link href="~/Content/weui.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/base.css")
+    @Styles.Render("~/Content/font/font.css")
+    @if (lvwei8.Common.Helpers.CheckerHelper.DetectMobile)
+    {
+        @Styles.Render("~/Content/responsive.css")
+    }
+    @Scripts.Render("~/Scripts/jquery-3.1.0.min.js")
+    @Scripts.Render("~/Scripts/my.js")
+</head>
+<body class="e-login">
+    <div class="e-wrapper">
+        <div class="e-navigation">
+            <nav class="e-navbar menu-bar">
+                <div class="page">
+                    <div class="row">
+                        <div class="g-md-12 e-menu-wrapper">
+                            <div class="pull-left">
+                                <div class="e-logo">
+                                    <a href="#"><img src=@Url.Content("~/Content/images/logo.png")></a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="g-lg-6 g-sm-6 pull-right">
+                                    @Html.Partial("_LoginPartial")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="header-wrapper" style="height:100%">
+        <div class="header-background">
+            <div class="overlay"></div>
+        </div>
+        <div class="page">
+            <div class="row">
+                <div class="login-bg g-lg-12 g-md-12 g-sm-12 g-xs-12">
+                    <div class="loginPanel g-md-4">
+                        <div class="loginPanelInt">
+                            <div class="hd">欢迎登录管理中心</div>
+                            <div class="bd">
+                                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                {
+                                    <div class="list-group">
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true)
+                                        @{
+                                            if ((bool)ViewBag.IsWeiXinAuth)
+                                            {
+                                                <input type="hidden" name="IsWeiXinLogin" value="1" />
+                                                <input type="hidden" name="WeixinUser" value="@ViewBag.WeiXinUser" />
+                                                <input type="hidden" name="WeixinStateurl" value="@ViewBag.WeiXinUrl" />
+                                            }
+                                        }
+                                        <div class="list-group-item">
+                                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control pull-noborder", @placeholder = "请输入手机号" })
+                                            @Html.ValidationMessageFor(m => m.UserName)
+                                        </div>
+                                        <div class="list-group-item">
+                                            @Html.PasswordFor(m=>m.Password, new { @class = "form-control pull-noborder", @placeholder = "请输入登录密码" })
+                                            @*<input type="password"  class="form-control pull-noborder"  placeholder="请输入登录密码"/>*@
+                                        </div>
+                                    </div>
+                                    <label class="ui-checkbox">
+                                        @Html.CheckBoxFor(m => m.RememberMe)
+                                        <span>记住我？</span>
+                                        @*<a href="@System.Configuration.ConfigurationManager.AppSettings["SendVerifySMSUrl"]" target="_blank">忘记密码？</a>*@
+                                        <span style="margin-left:10px;">@Html.ActionLink("忘记密码？", "ConfirmIdentity")</span>
+                                    </label>
+
+                                            if ((bool)ViewBag.IsWeiXinAuth)
+                                            {
+                                                <button type="submit" class="btn btn-lg btn-main btn-block" id="showloadingToast" onclick="$('#loadingToast').show();">登录中心</button>
+                                                <div id="loadingToast" class="weui_loading_toast" style="display:none;">
+                                                    <div class="weui_mask_transparent"></div>
+                                                    <div class="weui_toast">
+                                                        <div class="weui_loading">
+                                                            <!-- :) -->
+                                                            <div class="weui_loading_leaf weui_loading_leaf_0"></div>
+                                                            <div class="weui_loading_leaf weui_loading_leaf_1"></div>
+                                                            <div class="weui_loading_leaf weui_loading_leaf_2"></div>
+                                                            <div class="weui_loading_leaf weui_loading_leaf_3"></div>
+                                                            <div class="weui_loading_leaf weui_loading_leaf_4"></div>
+                                                            <div class="weui_loading_leaf weui_loading_leaf_5"></div>
+                                                            <div class="weui_loading_leaf weui_loading_leaf_6"></div>
+                                                            <div class="weui_loading_leaf weui_loading_leaf_7"></div>
+                                                            <div class="weui_loading_leaf weui_loading_leaf_8"></div>
+                                                            <div class="weui_loading_leaf weui_loading_leaf_9"></div>
+                                                            <div class="weui_loading_leaf weui_loading_leaf_10"></div>
+                                                            <div class="weui_loading_leaf weui_loading_leaf_11"></div>
+                                                        </div>
+                                                        <p class="weui_toast_content">正在登录</p>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <button class="btn btn-lg btn-main btn-block" type="submit">登录中心</button>
+                                            }
+
+
+                                            @*<p>
+                                                    @Html.ActionLink("Register", "Register") if you don't have a local account.
+                                                </p>*@
+
+                                            }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bg g-lg-12 g-md-12 g-sm-12 g-xs-12" id="footer">
+        <div class="page">
+            <div class="row">
+                @if (lvwei8.Common.Helpers.CheckerHelper.DetectMobile)
+                {
+                    <p>驴尾科技有限公司</p>
+                }
+                else
+                {
+                    <p>驴尾科技有限公司</p>
+                    <p>Copyright &copy; @DateTime.Now.Year lvwei8.com</p>
+                }
+            </div>
+        </div>
+    </div>
+    <!--[if IE 6]>
+        @Scripts.Render("~/Scripts/ie6png.js")
+    <![endif]-->
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>

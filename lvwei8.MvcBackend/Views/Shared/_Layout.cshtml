@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <title>@ViewBag.Title. - 驴尾巴管理中心</title>
+    @Styles.Render("~/Content/base.css")
+    @Styles.Render("~/Content/font/font.css")
+    @if (lvwei8.Common.Helpers.CheckerHelper.DetectMobile)
+    {
+        @Styles.Render("~/Content/responsive.css")
+    }
+    @RenderSection("CssSection", false)
+
+    @Scripts.Render("~/Scripts/jquery.js")
+    @Scripts.Render("~/Scripts/my.js")
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?f8d32c57a88c2b58e2db56d93c15367a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+    <div class="topbar">
+        <div class="logo">
+            <a class="logoInt" href="@Url.Action("Index","Home")"><span><img src="@Url.Content("~/Content/images/logo.png")"></span></a>
+            @if (lvwei8.Common.Helpers.CheckerHelper.DetectMobile)
+            {
+                <a class="responsive-menu-trigger" href="#menu"></a>
+            }
+        </div>
+        <div class="top-nav">
+            <div class="page">
+                <div class="row">
+                    @if (!lvwei8.Common.Helpers.CheckerHelper.DetectMobile)
+                    {
+                        <div class="g-lg-6 g-sm-6 leftnav">
+                            <ul>
+                                <li>
+                                    <a class="toggle-min" href="javascript:;"><i class="fa fa-dedent"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    }
+                    <div class="g-lg-6 g-sm-6 g-md-6 loginstatic">
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (lvwei8.Common.Helpers.CheckerHelper.DetectMobile)
+    {
+        <nav id="menu">
+            @if (Session["MyMenu"] == null)
+            {
+                Session["MyMenu"] = Html.Partial("~/Views/Shared/_Menu.cshtml");
+            }
+            @Session["MyMenu"]
+        </nav>
+    }
+    <div class="main-container">
+        @if (!lvwei8.Common.Helpers.CheckerHelper.DetectMobile)
+        {
+            <div class="sidebar fix">
+                @if (Session["MyMenu"] == null)
+                {
+                    Session["MyMenu"] = Html.Partial("~/Views/Shared/_Menu.cshtml");
+                }
+                @Session["MyMenu"]
+            </div>
+        }
+        <div class="content-container" id="content">
+            <div class="page">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="memberLoc">
+                            <i class="fa fa-home"></i><span><a href="@Url.Action("Index","Home")">首页</a> &raquo; <a href="javascript:;">@ViewBag.Title</a></span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="g-md-12">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-hidden"></div>
+            </div>
+        </div>
+    </div>
+    @if (lvwei8.Common.Helpers.CheckerHelper.DetectMobile)
+    {
+        <script type="text/javascript">
+            $(function() {
+                $("#menu").mmenu();
+            });
+        </script>
+    }
+    else
+    {
+        @Scripts.Render("~/Scripts/settings.js")
+        @Scripts.Render("~/bundles/uploadify")
+    }
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

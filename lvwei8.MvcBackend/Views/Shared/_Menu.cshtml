@@ -1,0 +1,110 @@
+﻿
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+@using Microsoft.Owin.Security;
+@using Microsoft.Owin;
+@using lvwei8.MvcBackend.Models;
+@{
+    var menus = new List<NavItem>
+    {
+        new NavItem{ LinkText="主页", ActionName="Index",ControllerName="Home",Roles="All",LinkIco="fa fa-home" },
+        new NavItem{ LinkText="企业内部人员管理",  Roles="Admin,MasterStation",LinkIco="fa fa-shopping-cart" ,
+            SubNavItems = new List<NavItem>(){
+                    new NavItem{ LinkText="市场人员(审核员)", ActionName="Index",ControllerName="Auditor",Roles="Admin,MasterStation",LinkIco="fa fa-paper-plane"  },
+                      new NavItem{ LinkText="财务员", ActionName="Index",ControllerName="Treasurer",Roles="Admin,MasterStation",LinkIco="fa fa-user-md"  },
+                     new NavItem{ LinkText="客服", ActionName="Index",ControllerName="CustomerService",Roles="Admin,MasterStation",LinkIco="fa fa-paper-plane"  },
+            }},
+          new NavItem{ LinkText="总站分站人员管理",  Roles="Admin,MasterStation",LinkIco="fa fa-shopping-cart" ,
+            SubNavItems = new List<NavItem>(){
+                  new NavItem{ LinkText="总站管理员", ActionName="Index",ControllerName="MasterStation",Roles="Admin,MasterStation",LinkIco="fa fa-user"  },
+                  new NavItem { LinkText="分站管理", ActionName="Index",ControllerName="SubStation", Roles="Admin,MasterStation"},
+            }},
+
+ new NavItem{ LinkText="商品",  Roles="Admin,MasterStation",LinkIco="fa fa-shopping-cart" ,
+            SubNavItems = new List<NavItem>(){
+                new NavItem { LinkText="服务商品列表", ActionName="QueryStoreProducts",ControllerName="Product"},
+            }},
+       //new NavItem{ LinkText="产品中心", ActionName="Index",ControllerName="ProductCenter",Roles="Admin,MasterStation",LinkIco="fa fa-user-md"  },
+       // new NavItem{ LinkText="专家", ActionName="Index",ControllerName="Expert",Roles="Admin,MasterStation,SubStation",LinkIco="fa fa-user-md"  },
+       // new NavItem{ LinkText="车主", ActionName="Index",ControllerName="SpreadStat",Roles="Admin,MasterStation,SubStation,Spreader",LinkIco="fa fa-crosshairs"  },
+       //  new NavItem{ LinkText="采集员", ActionName="Index",ControllerName="DataTypist",Roles="Admin,MasterStation,SubStation",LinkIco="fa fa-paper-plane"  },
+       //  new NavItem{ LinkText="反馈意见", ActionName="Index",ControllerName="FeedBack",Roles="Admin,MasterStation",LinkIco="fa fa-paper-plane"  },
+
+           new NavItem{ LinkText="用户",Roles="Admin,MasterStation,CustomerService,Treasurer",LinkIco="fa fa-share-alt",
+            SubNavItems = new List<NavItem>(){
+            new NavItem{ LinkText="用户列表",  ActionName="Index",ControllerName="User",Roles="Admin,MasterStation,CustomerService,Treasurer",LinkIco="fa fa-credit-card"},
+
+            }},
+           new NavItem{ LinkText="订单",Roles="Admin,MasterStation,CustomerService,SubStation",LinkIco="fa fa-credit-card",
+            SubNavItems = new List<NavItem>(){
+            new NavItem{ LinkText="服务订单",  ActionName="Index",ControllerName="ServiceOrder",Roles="Admin,MasterStation,SubStation",LinkIco="fa fa-credit-card"},
+
+            }},
+                      new NavItem{ LinkText="资源管理",  Roles="Admin,MasterStation",LinkIco="fa fa-shopping-cart" ,
+            SubNavItems = new List<NavItem>(){
+                  new NavItem{ LinkText="区域", ActionName="Index",ControllerName="Area",Roles="Admin,MasterStation",LinkIco="fa fa-user"  },
+            }},
+        new NavItem{ LinkText="其它",  Roles="Admin,MasterStation" ,LinkIco="fa fa-share-alt",
+            SubNavItems = new List<NavItem>(){
+                new NavItem { LinkText="公告管理", ActionName="Index",ControllerName="Announcement" },
+                new NavItem { LinkText="公司动态", ActionName="Index",ControllerName="News" },
+
+            }},
+    };
+}
+
+
+<ul @Html.Raw(lvwei8.Common.Helpers.CheckerHelper.DetectMobile ? "" : "class=\"main-menu\"")>
+    @{
+        IEnumerable<NavItem> links = null;
+
+        if (HttpContext.Current.User.Identity.IsAuthenticated)
+        {
+            links = from item in menus
+                    where item.Roles.Split(new String[] { "," }, StringSplitOptions.RemoveEmptyEntries)
+                    .Any(x => User.IsInRole(x) || x == "All")
+                    select item;
+        }
+        else
+        {
+            links = from item in menus
+                    where item.Roles.Split(new String[] { "," }, StringSplitOptions.RemoveEmptyEntries)
+                    .Any(x => new String[] { "All", "Anonymous" }.Contains(x))
+                    select item;
+        }
+
+        foreach (var link in links)
+        {
+            if (link.SubNavItems == null)
+            {
+                @:
+                <li><a href="@Url.Action(link.ActionName, link.ControllerName)"><i class="@link.LinkIco"></i><span>@link.LinkText</span></a></li>
+            }
+            else
+            {
+                <li class="has-submenu">
+                    @if (lvwei8.Common.Helpers.CheckerHelper.DetectMobile)
+                    {
+                        <span><i class="@link.LinkIco"></i><span>@link.LinkText</span></span>
+                    }
+                    else
+                    {
+                        <a href="#"><i class="@link.LinkIco"></i><span>@link.LinkText</span></a>
+                    }
+
+                    <ul class="submenu">
+                        @foreach (var subLink in link.SubNavItems)
+                        {
+                            //var isInRole = subLink.Roles.Split(new String[] { "," }, StringSplitOptions.RemoveEmptyEntries).Any(x => User.IsInRole(x) || x == "All");
+                            if (string.IsNullOrEmpty(subLink.Roles) || subLink.Roles.Split(new String[] { "," }, StringSplitOptions.RemoveEmptyEntries).Any(x => User.IsInRole(x) || x == "All"))
+                            {
+                                @:
+                                <li> @Html.ActionLink(subLink.LinkText, subLink.ActionName, subLink.ControllerName)</li>
+                            }
+                        }
+                    </ul>
+                </li>
+            }
+        }
+    }
+</ul>
