@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lvwei8.WebBackend", "lvwei8.WebBackend\lvwei8.WebBackend.csproj", "{38A42DEF-F23E-4F55-B4DB-976612D5F904}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lvwei8.WebAPI", "lvwei8.WebAPI\lvwei8.WebAPI.csproj", "{F3192EEF-F344-46B9-947F-8FE0F8DA496B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lvwei8.Web", "lvwei8.Web\lvwei8.Web.csproj", "{561050DE-20D7-4225-9B84-D5DC7DF81E01}"
@@ -31,10 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{38A42DEF-F23E-4F55-B4DB-976612D5F904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38A42DEF-F23E-4F55-B4DB-976612D5F904}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38A42DEF-F23E-4F55-B4DB-976612D5F904}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38A42DEF-F23E-4F55-B4DB-976612D5F904}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F3192EEF-F344-46B9-947F-8FE0F8DA496B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F3192EEF-F344-46B9-947F-8FE0F8DA496B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3192EEF-F344-46B9-947F-8FE0F8DA496B}.Release|Any CPU.ActiveCfg = Release|Any CPU
