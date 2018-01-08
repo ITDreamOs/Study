@@ -15,8 +15,8 @@ namespace lvwei8.MvcBackend.Controllers
 
         public async Task<ActionResult> Index()
         {
-            ApplicationDbInitializer.InitializeIdentityForEF(System.Web.HttpContext.Current.GetOwinContext().Get<lvwei8MySqlEntities>());
-            var userManager = (Autofac.Integration.Mvc.AutofacDependencyResolver.Current.GetService(typeof(ApplicationUserManager)) as ApplicationUserManager);
+            //ApplicationDbInitializer.InitializeIdentityForEF(System.Web.HttpContext.Current.GetOwinContext().Get<lvwei8MySqlEntities>());
+            //var userManager = (Autofac.Integration.Mvc.AutofacDependencyResolver.Current.GetService(typeof(ApplicationUserManager)) as ApplicationUserManager);
             //var roleManager = HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();
             //const string name = "admin@admin.com";
             //const string password = "Admin@123456";
