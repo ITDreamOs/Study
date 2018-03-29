@@ -33,10 +33,15 @@ namespace lvwei8.Model
 
         public DbSet<UserBackendDbModel> UserBackend { get; set; }
 
+        public DbSet<UserDbModel> Users { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            
             modelBuilder.Configurations.Add(new AreaDbModelMap());
             modelBuilder.Configurations.Add(new UserBackendDbModelMap());
+            modelBuilder.Configurations.Add(new UserDbModelMap());
         }
         #endregion
 
