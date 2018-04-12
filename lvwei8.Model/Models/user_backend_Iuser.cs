@@ -11,6 +11,9 @@ using Microsoft.AspNet.Identity;
 
 namespace lvwei8.Model.Models
 {
+    /// <summary>
+    /// 管理账户扩展
+    /// </summary>
     public class user_backend_Iuser : IUser
     {
 
@@ -19,6 +22,7 @@ namespace lvwei8.Model.Models
         {
             DB_user_backend = dB_user_backend;
         }
+
         public const string ChargeAreasClaimType = "ChargeAreas";
         public const string UserIdClaimType = "exiuBackendDbId";
         [NotMapped]
@@ -53,7 +57,9 @@ namespace lvwei8.Model.Models
             }
         }
 
-
+        /// <summary>
+        /// 区域
+        /// </summary>
         public string Areas
         {
 
@@ -67,6 +73,9 @@ namespace lvwei8.Model.Models
             }
 
         }
+        /// <summary>
+        /// 管理账户名称
+        /// </summary>
         public string UserName
         {
             get

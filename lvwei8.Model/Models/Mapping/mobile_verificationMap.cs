@@ -27,12 +27,11 @@ namespace lvwei8.Model.Models.Mapping
               .HasMaxLength(10);
 
             // Table & Column Mappings
-            this.ToTable("mobile_verification", "exiu_test");
+            this.ToTable("mobile_verification", "lvwei8");
             this.Property(t => t.MobileVerificationId).HasColumnName("MobileVerificationId");
             this.Property(t => t.Mobile).HasColumnName("Mobile");
             this.Property(t => t.VerificationCode).HasColumnName("VerificationCode");
             this.Property(t => t.LatestSuccesGetTime).HasColumnName("LatestSuccesGetTime");
-            this.Property(t => t.ExpiredIn).HasColumnName("ExpiredIn");
             this.Property(t => t.SendBy).HasColumnName("SendBy");
             this.Property(t => t.Remarks).HasColumnName("Remarks");
         }

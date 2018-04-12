@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace lvwei8.Model.Models
 {
+    /// <summary>
+    /// 后台管理账户
+    /// </summary>
     public partial class UserBackendDbModel
     {
         /// <summary>

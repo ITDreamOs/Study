@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace lvwei8.Model.Models
 {
+    /// <summary>
+    /// 用户数据模型
+    /// </summary>
     public partial class UserDbModel
     {
         public UserDbModel()

@@ -96,6 +96,7 @@
     <Compile Include="Lvwei8MySqlEntities.cs" />
     <Compile Include="Lvwei8MySqlReadOnlyEntities.cs" />
     <Compile Include="Models\Mapping\mobile_verificationMap.cs" />
+    <Compile Include="Models\Mapping\storeMap.cs" />
     <Compile Include="Models\Mapping\userMap.cs" />
     <Compile Include="Models\mobileVerification.cs" />
     <Compile Include="Models\area.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Models\Mapping\areaMap.cs" />
     <Compile Include="Models\Mapping\user_backendMap.cs" />
     <Compile Include="Models\MySqlFunction.cs" />
+    <Compile Include="Models\store.cs" />
     <Compile Include="Models\user.cs" />
     <Compile Include="Models\user_backend.cs" />
     <Compile Include="Models\user_backend_Iuser.cs" />

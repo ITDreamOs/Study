@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace lvwei8.Model.Models
 {
+    /// <summary>
+    /// 区域模型
+    /// </summary>
     public partial class AreaDbModel
     {
         public AreaDbModel()
