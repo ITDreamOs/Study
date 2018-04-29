@@ -105,6 +105,7 @@
     <Compile Include="Models\Mapping\user_backendMap.cs" />
     <Compile Include="Models\MySqlFunction.cs" />
     <Compile Include="Models\store.cs" />
+    <Compile Include="Models\store_category.cs" />
     <Compile Include="Models\user.cs" />
     <Compile Include="Models\user_backend.cs" />
     <Compile Include="Models\user_backend_Iuser.cs" />

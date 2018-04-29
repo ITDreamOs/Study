@@ -122,12 +122,12 @@ namespace lvwei8.Model.Models
         /// <summary>
         /// 商家主营类型
         /// </summary>
-        public Nullable<int> MainStoreCategory { get; set; }
+        public Nullable<int> MainCategory { get; set; }
 
         /// <summary>
         /// 商家类型 ','分隔
         /// </summary>
-        public  string StoreCategorys  { get; set; }
+        public  string Categorys  { get; set; }
 
         /// <summary>
         /// 店铺关键字
