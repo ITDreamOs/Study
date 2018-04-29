@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lvwei8.Model.Models
+namespace lvwei8.Model.Models.Mapping
 {
-    public partial class StoreCategoryDbModel
+    class store_categoryMap
     {
-        public StoreCategoryDbModel()
-        {
-
-        }
     }
 }

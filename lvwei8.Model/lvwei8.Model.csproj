@@ -97,6 +97,7 @@
     <Compile Include="Lvwei8MySqlReadOnlyEntities.cs" />
     <Compile Include="Models\Mapping\mobile_verificationMap.cs" />
     <Compile Include="Models\Mapping\storeMap.cs" />
+    <Compile Include="Models\Mapping\store_categoryMap.cs" />
     <Compile Include="Models\Mapping\userMap.cs" />
     <Compile Include="Models\mobileVerification.cs" />
     <Compile Include="Models\area.cs" />
