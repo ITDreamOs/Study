@@ -42,6 +42,11 @@ namespace lvwei8.Model
             modelBuilder.Configurations.Add(new AreaDbModelMap());
             modelBuilder.Configurations.Add(new UserBackendDbModelMap());
             modelBuilder.Configurations.Add(new UserDbModelMap());
+            modelBuilder.Configurations.Add(new MobileVerificationDbModelMap());
+            modelBuilder.Configurations.Add(new StoreDbModelMap());
+            modelBuilder.Configurations.Add(new StoreCategoryDbModelMap());
+            modelBuilder.Configurations.Add(new AdDbModelMap());
+            modelBuilder.Configurations.Add(new UserContactsDbModelMap());
         }
         #endregion
 

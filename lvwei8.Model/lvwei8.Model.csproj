@@ -101,6 +101,7 @@
     <Compile Include="Models\Mapping\storeMap.cs" />
     <Compile Include="Models\Mapping\store_categoryMap.cs" />
     <Compile Include="Models\Mapping\userMap.cs" />
+    <Compile Include="Models\Mapping\user_contactsMap.cs" />
     <Compile Include="Models\mobileVerification.cs" />
     <Compile Include="Models\area.cs" />
     <Compile Include="Models\lvwei8Context.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Models\user.cs" />
     <Compile Include="Models\user_backend.cs" />
     <Compile Include="Models\user_backend_Iuser.cs" />
+    <Compile Include="Models\user_contacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
