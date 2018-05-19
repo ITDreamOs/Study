@@ -109,6 +109,7 @@
     <Compile Include="Models\Mapping\areaMap.cs" />
     <Compile Include="Models\Mapping\user_backendMap.cs" />
     <Compile Include="Models\MySqlFunction.cs" />
+    <Compile Include="Models\product.cs" />
     <Compile Include="Models\product_category.cs" />
     <Compile Include="Models\store.cs" />
     <Compile Include="Models\store_category.cs" />
