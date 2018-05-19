@@ -47,6 +47,7 @@ namespace lvwei8.Model
             modelBuilder.Configurations.Add(new StoreCategoryDbModelMap());
             modelBuilder.Configurations.Add(new AdDbModelMap());
             modelBuilder.Configurations.Add(new UserContactsDbModelMap());
+            modelBuilder.Configurations.Add(new ProductCategoryDbModelMap());
         }
         #endregion
 

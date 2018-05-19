@@ -98,6 +98,7 @@
     <Compile Include="Models\ad.cs" />
     <Compile Include="Models\Mapping\adMap.cs" />
     <Compile Include="Models\Mapping\mobile_verificationMap.cs" />
+    <Compile Include="Models\Mapping\product_categoryMap.cs" />
     <Compile Include="Models\Mapping\storeMap.cs" />
     <Compile Include="Models\Mapping\store_categoryMap.cs" />
     <Compile Include="Models\Mapping\userMap.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="Models\Mapping\areaMap.cs" />
     <Compile Include="Models\Mapping\user_backendMap.cs" />
     <Compile Include="Models\MySqlFunction.cs" />
+    <Compile Include="Models\product_category.cs" />
     <Compile Include="Models\store.cs" />
     <Compile Include="Models\store_category.cs" />
     <Compile Include="Models\user.cs" />
