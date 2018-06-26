@@ -145,46 +145,66 @@ namespace lvwei8.Model.Models
         /// </summary>
         public string ChildrenStandardDesc { get; set; }
 
+        /// <summary>
+        /// 行程(用户准备的东西)或者商品描述
+        /// </summary>
+        public  string Desc { get; set; }
 
+        /// <summary>
+        /// 负责人用户Id
+        /// </summary>
+        public int? MasterUserId { get; set; }
+        /// <summary>
+        /// 导游用户id
+        /// </summary>
+        public int? GuideUserId { get; set; }
 
-
+      
 
 
 
         /// <summary>
-        /// 
+        /// 集合地点名称
         /// </summary>
-        public string LineMaster { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string LineMasterTel { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string LineMasterMoble { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Leader { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string LeaderMobil { get; set; }
+        public  string DepartureAreaName { get; set; }
 
         /// <summary>
         /// 集合地点
         /// </summary>
-        public string JIheTime { get; set; }
+        public string DepartureAreaCode { get; set; }
+
         /// <summary>
-        /// 
+        /// 集合地经度
         /// </summary>
-        public string JiHePlace { get; set; }
+        public Nullable<decimal> DepartureAreaLatitude { get; set; }
         /// <summary>
-        /// 
+        /// 集合地维度
         /// </summary>
-        public string Bianhao { get; set; }
+        public Nullable<decimal> DepartureAreaLongitude { get; set; }
+
+        /// <summary>
+        /// 集合地所在区域的geoHash值
+        /// </summary>
+        public string DepartureAreaAddressGeoHash { get; set; }
+
+
+        /// <summary>
+        /// 集合地点
+        /// </summary>
+        public string DepartureStarttime { get; set; }
+
+        /// <summary>
+        /// 剩余成人数量
+        /// </summary>
+        public int RemainAdultCount { get; set; }
+
+
+
+        /// <summary>
+        /// 剩余儿童数量
+        /// </summary>
+        public int RemainChildrenCount { get; set; }
+
 
     }
 }
