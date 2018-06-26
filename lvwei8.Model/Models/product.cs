@@ -27,12 +27,12 @@ namespace lvwei8.Model.Models
         /// <summary>
         /// 商品类型
         /// </summary>
-        public  int ProductCategoryId { get; set; }
+        public int ProductCategoryId { get; set; }
 
         /// <summary>
         /// 商家Id
         /// </summary>
-        public  int StoreId { get; set; }
+        public int StoreId { get; set; }
 
         /// <summary>
         /// 经度
@@ -51,7 +51,7 @@ namespace lvwei8.Model.Models
         /// <summary>
         /// 是否删除
         /// </summary>
-        public  bool IsDel { get; set; }
+        public bool IsDel { get; set; }
 
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace lvwei8.Model.Models
         /// <summary>
         /// 地点
         /// </summary>
-        public string ProductArea{ get; set; }
+        public string ProductArea { get; set; }
 
         /// <summary>
         /// 主要景点（关键字)
@@ -113,49 +113,41 @@ namespace lvwei8.Model.Models
 
 
         /// <summary>
-        /// 
+        /// 成人数量
         /// </summary>
-        public int? adultTicketCount { get; set; }
+        public int? AdultCount { get; set; }
 
         /// <summary>
         /// 成人票市场价
         /// </summary>
-        public int? adultTicketPrice { get; set; }
+        public int? AdultTicketPrice { get; set; }
         /// <summary>
         /// 成人票售价
         /// </summary>
-        public int? adultSellPrice { get; set; }
+        public int? AdultPrice { get; set; }
+
 
         /// <summary>
-        /// 成人票折扣价
+        /// 儿童数量
         /// </summary>
-        public int? adultzkPrice { get; set; }
+        public int? ChildrenCount { get; set; }
         /// <summary>
-        /// 
+        /// 儿童票市场价
         /// </summary>
-        public int? puppyTicketCount { get; set; }
+        public int? ChildrenTicketPrice { get; set; }
         /// <summary>
-        /// 
+        /// 儿童票价
         /// </summary>
-        public int? puppyTicketPrice { get; set; }
-        /// <summary>
-        /// 儿童票成交价
-        /// </summary>
-        public int? puppySellPricem { get; set; }
-        /// <summary>
-        /// 儿童折扣价
-        /// </summary>
-        public int? puppyzkCount { get; set; }
+        public int? ChildrenPrice { get; set; }
 
         /// <summary>
-        /// 儿童标准
+        /// 儿童标准描述
         /// </summary>
-        public string PuppyLine { get; set; }
+        public string ChildrenStandardDesc { get; set; }
 
-        /// <summary>
-        /// 是否推荐
-        /// </summary>
-        public int? IsTuijian { get; set; }
+
+
+
 
 
 
