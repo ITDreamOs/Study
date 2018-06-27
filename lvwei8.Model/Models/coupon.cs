@@ -15,5 +15,7 @@ namespace lvwei8.Model.Models
         /// 券卡Id
         /// </summary>
         public  int CouponId { get; set; }
+
+
     }
 }
