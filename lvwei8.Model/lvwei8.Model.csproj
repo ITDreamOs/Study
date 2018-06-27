@@ -98,6 +98,7 @@
     <Compile Include="Models\ad.cs" />
     <Compile Include="Models\Mapping\adMap.cs" />
     <Compile Include="Models\Mapping\mobile_verificationMap.cs" />
+    <Compile Include="Models\Mapping\productMap.cs" />
     <Compile Include="Models\Mapping\product_categoryMap.cs" />
     <Compile Include="Models\Mapping\storeMap.cs" />
     <Compile Include="Models\Mapping\store_categoryMap.cs" />
