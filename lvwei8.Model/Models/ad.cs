@@ -8,6 +8,10 @@ namespace lvwei8.Model.Models
 {
     public partial class AdDbModel
     {
+        public AdDbModel()
+        {
+
+        }
         /// <summary>
         /// 广告id主键
         /// </summary>

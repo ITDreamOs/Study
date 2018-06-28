@@ -11,6 +11,10 @@ namespace lvwei8.Model.Models
     /// </summary>
     public partial class UserBackendDbModel
     {
+        public UserBackendDbModel()
+        {
+
+        }
         /// <summary>
         /// 主键
         /// </summary>

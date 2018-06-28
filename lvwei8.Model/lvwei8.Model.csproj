@@ -97,6 +97,7 @@
     <Compile Include="Lvwei8MySqlReadOnlyEntities.cs" />
     <Compile Include="Models\ad.cs" />
     <Compile Include="Models\coupon.cs" />
+    <Compile Include="Models\coupon_account.cs" />
     <Compile Include="Models\Mapping\adMap.cs" />
     <Compile Include="Models\Mapping\mobile_verificationMap.cs" />
     <Compile Include="Models\Mapping\productMap.cs" />

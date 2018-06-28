@@ -11,6 +11,10 @@ namespace lvwei8.Model.Models
     /// </summary>
     public partial class UserContactsDbModel
     {
+        public UserContactsDbModel()
+        {
+
+        }
         /// <summary>
         /// 主键
         /// </summary>
