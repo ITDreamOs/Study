@@ -52,6 +52,24 @@ namespace lvwei8.Model.Models
         /// 面值
         /// </summary>
         public Nullable<decimal> FaceValue { get; set; }
+
+        /// <summary>
+        /// 折扣率
+        /// </summary>
+        public  Nullable<decimal> DiscountRate { get; set; }
+
+        /// <summary>
+        /// 满减 满多少
+        /// </summary>
+        public Nullable<decimal> FullSubtractionFullValue { get; set; }
+
+
+        /// <summary>
+        /// 满减 减多少
+        /// </summary>
+        public Nullable<decimal> FullSubtractionSubtractionValue { get; set; }
+
+
         /// <summary>
         /// 发行量
         /// </summary>
@@ -62,6 +80,7 @@ namespace lvwei8.Model.Models
         /// </summary>
         public int CouponType { get; set; }
 
+
         /// <summary>
         /// 适用商品或者服务类型
         /// </summary>
@@ -71,7 +90,6 @@ namespace lvwei8.Model.Models
        /// 商家券
        /// </summary>
         public  int? StoreCategory { get; set; }
-
         /// <summary>
         /// 区域券
         /// </summary>
@@ -81,8 +99,6 @@ namespace lvwei8.Model.Models
         /// 分站券
         /// </summary>
         public int? SubStationId { get; set; }
-
-
         /// <summary>
         /// 分站券
         /// </summary>
@@ -92,6 +108,9 @@ namespace lvwei8.Model.Models
         /// 商品Id
         /// </summary>
         public int? ProductId { get; set; }
+
+
+        
 
 
 
