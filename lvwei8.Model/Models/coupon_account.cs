@@ -64,7 +64,31 @@ namespace lvwei8.Model.Models
         /// 适用商家
         /// </summary>
         public Nullable<int> FitStoreId { get; set; }
-        
+
+        /// <summary>
+        /// 适用商家
+        /// </summary>
+        public Nullable<int> FitSubStationId { get; set; }
+        /// <summary>
+        /// 适用商家
+        /// </summary>
+        public Nullable<int> FitProductId { get; set; }
+        /// <summary>
+        /// 适用商家
+        /// </summary>
+        public string FitAreas { get; set; }
+        /// <summary>
+        /// 适用商家
+        /// </summary>
+        public Nullable<int> FitProductCategory { get; set; }
+
+        /// <summary>
+        /// 适用商家
+        /// </summary>
+        public Nullable<int> FitStoreCategory { get; set; }
+
+
+
         public Nullable<decimal> FaceValue { get; set; }
 
 
