@@ -86,7 +86,9 @@ namespace lvwei8.Model.Models
         /// 适用商家
         /// </summary>
         public Nullable<int> FitStoreCategory { get; set; }
-
+        /// <summary>
+        /// 面值
+        /// </summary>
 
 
         public Nullable<decimal> FaceValue { get; set; }
