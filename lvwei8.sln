@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lvwei8.Redis", "lvwei8.Redi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lvwei8.MvcBackend", "lvwei8.MvcBackend\lvwei8.MvcBackend.csproj", "{CBF8D64E-D7A0-4206-B093-A12B8CEEA3B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lvwei8.MvcStore", "lvwei8.MvcStore\lvwei8.MvcStore.csproj", "{AB6DE0B5-10C2-46DD-A01D-5C6956CBCEFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{CBF8D64E-D7A0-4206-B093-A12B8CEEA3B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBF8D64E-D7A0-4206-B093-A12B8CEEA3B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBF8D64E-D7A0-4206-B093-A12B8CEEA3B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB6DE0B5-10C2-46DD-A01D-5C6956CBCEFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB6DE0B5-10C2-46DD-A01D-5C6956CBCEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB6DE0B5-10C2-46DD-A01D-5C6956CBCEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB6DE0B5-10C2-46DD-A01D-5C6956CBCEFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
