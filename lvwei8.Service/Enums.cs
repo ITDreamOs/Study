@@ -64,12 +64,6 @@ namespace lvwei8.Service
         WeChat = 9,
 
         /// <summary>
-        /// 第三方支付通知：支付宝
-        /// </summary>
-        [Description("第三方支付通知：支付宝")]
-        AliPay = 14,
-
-        /// <summary>
         /// 后台管理
         /// </summary>
         [Description("后台管理")]
