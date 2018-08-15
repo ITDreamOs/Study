@@ -28,9 +28,14 @@ namespace lvwei8.Model.Models
         {
         }
 
-
+        /// <summary>
+        /// 区域
+        /// </summary>
         public DbSet<AreaDbModel> Areas { get; set; }
 
+        /// <summary>
+        /// 后台管理员
+        /// </summary>
         public DbSet<UserBackendDbModel> UserBackend { get; set; }
        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
