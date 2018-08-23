@@ -49,9 +49,9 @@ namespace lvwei8.Service.UserBackend
 
         #region 微信企业号支持
         //企业id
-        private readonly static string CORPID = "wxe4004af855353d40";
+        private readonly static string CORPID = "";
         //企业secret
-        private readonly static string CORPSECRET = "mVbn7l1UrEX8IX3lArAJnlMmQOxx1O6NQlf0dNAtZ3NZzKYCFpqIyMZCfs74XrcZ";
+        private readonly static string CORPSECRET = "";
         //回调Token
         private readonly static string CALLBACKTOKEN = "qukhSeWKlVYcBRrW9vNr";
         //EncodingAESKey
@@ -63,22 +63,22 @@ namespace lvwei8.Service.UserBackend
 
         #region 支付公众号
         //企业公众号id
-        private readonly string OPENCORPID = "wxfb87677213aa8675";
+        private readonly string OPENCORPID = "";
         //企业公众号secret
-        private readonly string OPENCORPSECRET = "1b1c42ba88a7154512e3ce28cdb60489";
+        private readonly string OPENCORPSECRET = "";
         //服务器token
         private readonly string OPENCALLBACKTOKEN = "298029_b";
         //服务器EncodingAESKey
         private readonly string OPENCALLBACKENCODINGAESKEY = "GATmdgITGERoRSS5vx8f8GB94zUeBe3h1GCsM4yVulP";
 
-        //认证url https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxfb87677213aa8675&redirect_uri=https://testwww.114995.com/Account/Register&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirec
+      
         #endregion
 
         #region 注册公众号
         //企业公众号id
-        private readonly string RegisterOPENCORPID = "wx03e7fba2f52db4e0";
+        private readonly string RegisterOPENCORPID = "";
         //企业公众号secret
-        private readonly string RegisterOPENCORPSECRET = "9bed9e6ea0fde6e5d85102f782bcc146";
+        private readonly string RegisterOPENCORPSECRET = "";
         //服务器token
         private readonly string RegisterOPENCALLBACKTOKEN = "298029_b";
         //服务器EncodingAESKey
@@ -429,15 +429,7 @@ namespace lvwei8.Service.UserBackend
             var SendContent = string.Empty;
             #region 监控发给谁
             #region 能力判断
-            ////修改支付密码能力的
-            //var IsChangePayPassWordPowers = Service.Enums.WeiXinTaskRegStr.ChangePayPassWordPower.Split(',').ToList().Contains(userid);
-            ////修改密码
-            //var IsChangePassWordPower = Service.Enums.WeiXinTaskRegStr.ChangePassWordPower.Split(',').ToList().Contains(userid);
-            ////查询用户id
-            //var IsSearchUser = Service.Enums.WeiXinTaskRegStr.SearchUserIdPower.Split(',').ToList().Contains(userid);
-            //#endregion
-            //var isPower = (IsChangePayPassWordPowers || IsChangePassWordPower)||IsSearchUser;
-            //获取能力
+
             var UserPower = GetPowerByWeixinUserId(userid);
             if (UserPower.IsPower)
             {
