@@ -102,7 +102,9 @@
     <Compile Include="Models\Mapping\adMap.cs" />
     <Compile Include="Models\Mapping\couponMap.cs" />
     <Compile Include="Models\Mapping\coupon_accountMap.cs" />
+    <Compile Include="Models\Mapping\coupon_storeMap.cs" />
     <Compile Include="Models\Mapping\mobile_verificationMap.cs" />
+    <Compile Include="Models\Mapping\orderMap.cs" />
     <Compile Include="Models\Mapping\productMap.cs" />
     <Compile Include="Models\Mapping\product_categoryMap.cs" />
     <Compile Include="Models\Mapping\storeMap.cs" />

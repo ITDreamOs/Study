@@ -657,12 +657,12 @@ namespace lvwei8.Service.UserBackend
         private WeiXinUserPowers GetPowerByWeixinUserId(string weiXinUserId)
         {
             var userPower = new WeiXinUserPowers();
-            #region 能力追加
-            userPower.ChangePayPassWord = Service.Enums.WeiXinTaskRegStr.ChangePayPassWordPower.Split(',').ToList().Contains(weiXinUserId);
-            userPower.ChangePassWord = Service.Enums.WeiXinTaskRegStr.ChangePassWordPower.Split(',').ToList().Contains(weiXinUserId);
-            userPower.SearchUserId = Service.Enums.WeiXinTaskRegStr.SearchUserIdPower.Split(',').ToList().Contains(weiXinUserId);
-            #endregion
-            userPower.IsPower = userPower.ChangePayPassWord || userPower.ChangePassWord || userPower.SearchUserId;
+            //#region 能力追加
+            //userPower.ChangePayPassWord = Service.Enums.WeiXinTaskRegStr.ChangePayPassWordPower.Split(',').ToList().Contains(weiXinUserId);
+            //userPower.ChangePassWord = Service.Enums.WeiXinTaskRegStr.ChangePassWordPower.Split(',').ToList().Contains(weiXinUserId);
+            //userPower.SearchUserId = Service.Enums.WeiXinTaskRegStr.SearchUserIdPower.Split(',').ToList().Contains(weiXinUserId);
+            //#endregion
+            //userPower.IsPower = userPower.ChangePayPassWord || userPower.ChangePassWord || userPower.SearchUserId;
             return userPower;
 
         }
@@ -720,65 +720,66 @@ namespace lvwei8.Service.UserBackend
         /// <returns></returns>
         private string getSendContent(string Content, string HelpText, WeiXinUserPowers power)
         {
-            if (!power.IsPower)
-            {
-                return string.Empty;
-            }
+            return "";
+            //if (!power.IsPower)
+            //{
+            //    return string.Empty;
+            //}
 
-            #region 修改支付密码
-            //修改支付密码
-            if (power.ChangePayPassWord)
-            {
-                if (Common.Helpers.StringHelper.StrIsMatch(Content, Service.Enums.WeiXinTaskRegStr.ChangePayPassword).Success)
-                {
-                    return WeixinContentFillter(Content, Service.Enums.WeiXinTaskRegStr.ChangePayPassword);
-                }
-                else if (Content == "TX")
-                {
-                   // WalletService.WithdrawReady();
-                    return "提现信息已发送!:)";
-                }
-                else if (Content == "支付密码")
-                {
-                    return Service.Enums.WeiXinTaskRegStr.ChangePayPasswordDsec;
-                }
+            //#region 修改支付密码
+            ////修改支付密码
+            //if (power.ChangePayPassWord)
+            //{
+            //    if (Common.Helpers.StringHelper.StrIsMatch(Content, Service.Enums.WeiXinTaskRegStr.ChangePayPassword).Success)
+            //    {
+            //        return WeixinContentFillter(Content, Service.Enums.WeiXinTaskRegStr.ChangePayPassword);
+            //    }
+            //    else if (Content == "TX")
+            //    {
+            //       // WalletService.WithdrawReady();
+            //        return "提现信息已发送!:)";
+            //    }
+            //    else if (Content == "支付密码")
+            //    {
+            //        return Service.Enums.WeiXinTaskRegStr.ChangePayPasswordDsec;
+            //    }
 
-            }
-            #endregion
+            //}
+            //#endregion
 
-            #region 修改密码
-            //修改密码
-            if (power.ChangePassWord)
-            {
-                if (Common.Helpers.StringHelper.StrIsMatch(Content, Service.Enums.WeiXinTaskRegStr.ChangePassword).Success)
-                {
-                    return ChangePassword(Content, Service.Enums.WeiXinTaskRegStr.ChangePassword, Service.Enums.WeiXinTaskRegStr.ChangePasswordDsec);
-                }
-                else if (Content == "修改密码")
-                {
-                    return Service.Enums.WeiXinTaskRegStr.ChangePasswordDsec;
-                }
+            //#region 修改密码
+            ////修改密码
+            //if (power.ChangePassWord)
+            //{
+            //    if (Common.Helpers.StringHelper.StrIsMatch(Content, Service.Enums.WeiXinTaskRegStr.ChangePassword).Success)
+            //    {
+            //        return ChangePassword(Content, Service.Enums.WeiXinTaskRegStr.ChangePassword, Service.Enums.WeiXinTaskRegStr.ChangePasswordDsec);
+            //    }
+            //    else if (Content == "修改密码")
+            //    {
+            //        return Service.Enums.WeiXinTaskRegStr.ChangePasswordDsec;
+            //    }
 
-            }
-            #endregion
+            //}
+            //#endregion
 
-            #region 查询用户Id
-            //查询用户ID
-            if (power.SearchUserId)
-            {
-                if (Common.Helpers.StringHelper.StrIsMatch(Content, Service.Enums.WeiXinTaskRegStr.SearchUserId).Success)
-                {
-                    return GetUser(Content, Service.Enums.WeiXinTaskRegStr.SearchUserId, Service.Enums.WeiXinTaskRegStr.SearchUserIdDsec);
-                }
-                else if (Content == "查询用户")
-                {
-                    return Service.Enums.WeiXinTaskRegStr.SearchUserIdDsec;
-                }
-            }
-            #endregion
+            //#region 查询用户Id
+            ////查询用户ID
+            //if (power.SearchUserId)
+            //{
+            //    if (Common.Helpers.StringHelper.StrIsMatch(Content, Service.Enums.WeiXinTaskRegStr.SearchUserId).Success)
+            //    {
+            //        return GetUser(Content, Service.Enums.WeiXinTaskRegStr.SearchUserId, Service.Enums.WeiXinTaskRegStr.SearchUserIdDsec);
+            //    }
+            //    else if (Content == "查询用户")
+            //    {
+            //        return Service.Enums.WeiXinTaskRegStr.SearchUserIdDsec;
+            //    }
+            //}
+            //#endregion
 
 
-            return HelpText;
+            //return HelpText;
         }
         #endregion
 
@@ -795,7 +796,7 @@ namespace lvwei8.Service.UserBackend
         public string WeixinContentFillter(string weixincontent, string RegStr)
         {
 
-            var result = Service.Enums.WeiXinTaskRegStr.ChangePayPasswordDsec;
+            var result = "";
             var math = Common.Helpers.StringHelper.StrIsMatch(weixincontent, RegStr);
             if (!math.Success)
             {
